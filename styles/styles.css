@@ -356,7 +356,6 @@ a {
   margin: 0 auto;
 }
 
-/* _baseStyles.scss */
 button {
   color: #084b6d;
   background-color: transparent;
@@ -603,4 +602,31 @@ main section {
   padding: 70px 45px;
   border: 24px solid #f4fcff;
   background-color: #fff;
+}
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 90px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+header .headerImgContainer {
+  width: 45%;
+  border: 1px solid red;
+}
+header .headerImgContainer img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+header .headerContent {
+  width: 55%;
+}
+header .headerContent .contentContainer {
+  width: 65%;
+  margin: 0 auto;
 }
