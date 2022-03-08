@@ -17,6 +17,9 @@
 // h5: 14px;
 
 @import "./partials/setup";
+@import "./partials/variables";
+@import "./partials/typography";
+@import "./partials/baseStyles";
 
 @font-face {
     font-family: "Jakarta Sans";
@@ -40,3 +43,5 @@
     font-family: "Young Serif";
     src: url('../fonts/youngserif/YoungSerif-Regular.otf');
 }
+
+
