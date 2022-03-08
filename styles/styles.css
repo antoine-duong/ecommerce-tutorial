@@ -235,6 +235,22 @@ html {
   overflow: hidden;
 }
 
+@font-face {
+  font-family: "Jakarta Sans";
+  src: url("../fonts/PlusJakarta_Sans-2.5/webfonts/PlusJakartaSans-Regular.woff"), url("../../fonts/PlusJakarta_Sans-2.5/static/PlusJakartaSans-Regular.ttf"), url("../../fonts/PlusJakarta_Sans-2.5/webfonts/PlusJakartaSans-Regular.woff2");
+  font-weight: normal;
+}
+/* import Jakarta Sans font in bold */
+@font-face {
+  font-family: "Jakarta Sans";
+  src: url("../fonts/PlusJakarta_Sans-2.5/webfonts/PlusJakartaSans-Bold.woff"), url("../fonts/PlusJakarta_Sans-2.5/webfonts/PlusJakartaSans-Bold.woff2"), url("../fonts/PlusJakarta_Sans-2.5/static/PlusJakartaSans-Bold.ttf");
+  font-weight: bold;
+}
+/* import Young Serif font */
+@font-face {
+  font-family: "Young Serif";
+  src: url("../fonts/youngserif/YoungSerif-Regular.otf");
+}
 html {
   font-size: 125%;
 }
@@ -340,19 +356,251 @@ a {
   margin: 0 auto;
 }
 
-@font-face {
-  font-family: "Jakarta Sans";
-  src: url("../fonts/PlusJakarta_Sans-2.5/webfonts/PlusJakartaSans-Regular.woff"), url("../../fonts/PlusJakarta_Sans-2.5/static/PlusJakartaSans-Regular.ttf"), url("../../fonts/PlusJakarta_Sans-2.5/webfonts/PlusJakartaSans-Regular.woff2");
-  font-weight: normal;
-}
-/* import Jakarta Sans font in bold */
-@font-face {
-  font-family: "Jakarta Sans";
-  src: url("../fonts/PlusJakarta_Sans-2.5/webfonts/PlusJakartaSans-Bold.woff"), url("../fonts/PlusJakarta_Sans-2.5/webfonts/PlusJakartaSans-Bold.woff2"), url("../fonts/PlusJakarta_Sans-2.5/static/PlusJakartaSans-Bold.ttf");
+/* _baseStyles.scss */
+button {
+  color: #084b6d;
+  background-color: transparent;
+  padding: 18px 36px;
+  border: 2px solid #084b6d;
+  font-size: 0.8rem;
   font-weight: bold;
+  line-height: 1.2rem;
+  text-align: center;
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  /* style the button in the main nav menu to look just like an icon */
 }
-/* import Young Serif font */
-@font-face {
+button:hover {
+  background-color: #084b6d;
+  color: #fff;
+}
+button:focus {
+  background-color: #084b6d;
+  color: #fff;
+}
+button.secondary {
+  background-color: transparent;
+  border-color: #fff;
+  color: #fff;
+  padding: 8px 12px;
+}
+button.secondary:hover {
+  background-color: #fff;
+  color: #084b6d;
+}
+button.secondary:focus {
+  background-color: #fff;
+  color: #084b6d;
+}
+button.solid {
+  color: #fff;
+  background-color: #084b6d;
+}
+button.solid:hover {
+  color: #084b6d;
+  background-color: #fff;
+}
+button.menuIcon {
+  display: inherit;
+  padding: 0;
+  border: none;
+}
+button.menuIcon:hover {
+  background-color: transparent;
+}
+button.menuIcon:focus {
+  background-color: transparent;
+}
+
+.announcements {
+  padding: 10px 0;
+  text-align: center;
+  border-bottom: 1px solid rgba(8, 75, 109, 0.08);
+}
+
+.navBar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid rgba(8, 75, 109, 0.08);
+  background-color: #fff;
+}
+.navBar .wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 20px 0;
+}
+.navBar .searchCart {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.navBar .searchCart .searchIcon, .navBar .searchCart .bagIcon {
+  margin-right: 15px;
+}
+.navBar .logo {
+  margin-left: 60px;
+}
+.navBar .counter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.navBar .counter p {
+  width: 24px;
+  height: 24px;
+  background-color: #084b6d;
+  color: #fff;
+  text-align: center;
+  border-radius: 50%;
+}
+.navBar input[type=checkbox] {
+  opacity: 0;
+  position: absolute;
+}
+.navBar input[type=checkbox]:checked ~ .slideOutNav {
+  left: 0;
+}
+.navBar input[type=checkbox]:focus + label {
+  border: 1px dotted #084b6d;
+}
+.navBar label {
+  cursor: pointer;
+}
+.navBar .slideOutNav {
+  padding: 35px 50px;
+  width: 100%;
+  height: 100vh;
+  max-width: 506px;
+  border-right: 1px solid #f4fcff;
+  background-color: #084b6d;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  left: -506px;
+  z-index: 20;
+  -webkit-transition: 0.75s;
+  transition: 0.75s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.navBar .slideOutNav .buttonContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+.navBar .slideOutNav .buttonContainer button {
+  color: #fff;
+  background-color: transparent;
+  font-size: 1.2rem;
+  font-family: "Jakarta Sans";
+  padding: 10px 0 10px 20px;
+}
+.navBar .slideOutNav hr {
+  width: 24px;
+  height: 2px;
+  margin: 36px 0;
+  background-color: #fff;
+  border: none;
+}
+.navBar .slideOutNav .mainMenu {
   font-family: "Young Serif";
-  src: url("../fonts/youngserif/YoungSerif-Regular.otf");
+  font-size: 1.6rem;
+  line-height: 2.5rem;
+}
+.navBar .slideOutNav .mainMenu a:hover, .navBar .slideOutNav .mainMenu a:focus {
+  color: rgba(255, 255, 255, 0.5);
+}
+.navBar .slideOutNav .legal {
+  font-family: "Jakarta Sans";
+  font-size: 0.8rem;
+  font-weight: bold;
+  line-height: 1.5rem;
+}
+.navBar .slideOutNav .legal a {
+  color: rgba(255, 255, 255, 0.5);
+}
+.navBar .slideOutNav .legal a:hover, .navBar .slideOutNav .legal a:focus {
+  color: white;
+}
+
+/* _sections.scss */
+main section {
+  margin-bottom: 90px;
+}
+
+.titleBar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 70px;
+}
+
+.product {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.productImgContainer {
+  width: 30%;
+  text-align: center;
+}
+.productImgContainer img {
+  border-radius: 5%;
+  margin: 24px;
+  width: calc(100% - 48px);
+}
+
+.play {
+  background-image: url(../assets/background-image.jpg);
+  background-position: center;
+  background-size: cover;
+  min-height: 90vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.play .playContainer {
+  max-width: 650px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 70px 45px;
+  border: 24px solid #f4fcff;
+  background-color: #fff;
 }
